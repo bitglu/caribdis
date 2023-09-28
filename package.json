@@ -15,9 +15,11 @@
     "@supabase/auth-ui-shared": "^0.1.7",
     "@supabase/supabase-js": "^2.36.0",
     "antd": "^5.9.3",
+    "dayjs": "^1.11.10",
     "next": "latest",
     "react": "latest",
-    "react-dom": "latest"
+    "react-dom": "latest",
+    "zod": "^3.23.0-canary.20230815T194608"
   },
   "devDependencies": {
     "@types/node": "latest",

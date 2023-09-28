@@ -771,7 +771,7 @@ damerau-levenshtein@^1.0.8:
   resolved "https://registry.npmjs.org/damerau-levenshtein/-/damerau-levenshtein-1.0.8.tgz"
   integrity sha512-sdQSFB7+llfUcQHUQO3+B8ERRj0Oa4w9POWMI/puGtuf7gFywGmkaLCElnudfTiKZV+NvHqL0ifzdrI8Ro7ESA==
 
-dayjs@^1.11.1:
+dayjs@^1.11.1, dayjs@^1.11.10:
   version "1.11.10"
   resolved "https://registry.npmjs.org/dayjs/-/dayjs-1.11.10.tgz"
   integrity sha512-vjAczensTgRcqDERK0SR2XMwsF/tSvnvlv6VcF2GIhg6Sx4yOIt/irsr1RDJsKiIyBzJDpCoXiWWq28MqH2cnQ==
@@ -2948,3 +2948,8 @@ zod@3.21.4:
   version "3.21.4"
   resolved "https://registry.npmjs.org/zod/-/zod-3.21.4.tgz"
   integrity sha512-m46AKbrzKVzOzs/DZgVnG5H55N1sv1M8qZU3A8RIKbs3mrACDNeIOeilDymVb2HdmP8uwshOCF4uJ8uM9rCqJw==
+
+zod@^3.23.0-canary.20230815T194608:
+  version "3.23.0-canary.20230815T194608"
+  resolved "https://registry.yarnpkg.com/zod/-/zod-3.23.0-canary.20230815T194608.tgz#9f7f5e1be47a2592ec28da4b28038236d1ab9fd4"
+  integrity sha512-1voEp0ooZsGTGA1YNGaWhTwHqwRIgi/6h/5PeUtgGZAn/WFdINEZWa8QaR27K2tYZSUepzVg2YivzK4Bxrr9Ow==
