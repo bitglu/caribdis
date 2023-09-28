@@ -1,28 +1,33 @@
 import * as z from "zod";
 
-export const VehiclesSchema = z.object({
+const VehiclesSchema = z.object({
   id: z.number(),
   model: z.string(),
   brand: z.string(),
   year: z.string(),
 });
 
-export const DriversSchema = z.object({
+const DriversSchema = z.object({
   id: z.union([z.number(), z.null()]).optional(),
   name: z.string(),
   email: z.string().email().min(5),
   phone: z.string(),
 });
 
-export const CompaniesSchema = z.object({
+const CompaniesSchema = z.object({
   id: z.number(),
   name: z.string(),
 });
 
-export const PassengerSchema = z.object({
+const PassengerSchema = z.object({
   name: z.string().min(3),
   phone: z.string().min(3),
   email: z.string().email().min(3),
+});
+
+const InformationSchema = z.object({
+  passengers: z.number().optional(),
+  baggage: z.number().optional(),
 });
 
 export const TravelsSchema = z.object({
@@ -54,5 +59,6 @@ export const TravelsSchema = z.object({
   companies: CompaniesSchema,
   drivers: DriversSchema,
   vehicles: VehiclesSchema,
+  information: InformationSchema,
 });
 export type TravelsInterface = z.infer<typeof TravelsSchema>;
