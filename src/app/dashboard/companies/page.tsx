@@ -9,7 +9,7 @@ export default async function CompaniesPage() {
     data: { session },
   } = await supabase.auth.getSession();
 
-  const { data: companies } = await supabase.from("companies").select("email, id, name, phone, status, administrator, created_at");
+  const { data: companies } = await supabase.from("companies").select();
 
   const payload: any = companies;
   

@@ -24,124 +24,92 @@ export default function CompaniesPageComponent(props: {
     companies: TravelsInterface[] | null;
   }) {
     const { companies } = props
+
+    const Here = companies
+    console.log('aquii',Here);
+    
+    
     
 
     const items: MenuProps["items"] = [
         {
           key: "1",
-          label: "Assign driver",
+          label: "Search driver",
           icon: <CarOutlined />,
         },
         {
           key: "2",
-          label: "Complete trip",
-          icon: <CheckCircleOutlined />,
-        },
-        {
-          key: "3",
           danger: true,
-          label: "Cancel trip",
+          label: "Delete Companie",
           icon: <DeleteOutlined />,
         },
       ];
     
-      // const columns: ColumnsType<TravelsInterface> = [
-      //   {
-      //     title: "Id",
-      //     dataIndex: "id",
-      //     key: "id",
-      //     render: (text) => <Typography.Text strong>{text.name}</Typography.Text>,
-      //   },
-      //   {
-      //     title: "Name",
-      //     dataIndex: "name",
-      //     key: "name",
-      //     render: (text) => (
-      //       <section>
-      //         <Typography.Text strong>{text.name}</Typography.Text>
-      //       </section>
-      //     ),
-      //   },
-      //   {
-      //     title: "Phone",
-      //     dataIndex: "phone",
-      //     key: "phone",
-      //     render: (text) => (
-      //       <section>
-      //         <Typography.Text  strong>
-      //           {text.name}
-      //         </Typography.Text>
-      //         <br />
-      //       </section>
-      //     ),
-      //   },
-      //   {
-      //     title: "Email",
-      //     dataIndex: "email",
-      //     key: "email",
-      //     render: (text) => (
-      //       <section>
-      //         <Typography.Text strong>
-      //           {text.name}
-      //         </Typography.Text>
-      //         <br />
-      //       </section>
-      //     ),
-      //   },
-      //   {
-      //     title: "Status",
-      //     dataIndex: "status",
-      //     key: "status",
-      //     render: (text) => (
-      //       <section>
-      //         <Tag color="green">{text}</Tag>
-      //       </section>
-      //     ),
-      //   },
-    
-      //   {
-      //     title: "Action",
-      //     key: "action",
-      //     render: (_, record) => (
-      //       <Dropdown menu={{ items }}>
-      //         <Button icon={<MoreOutlined />}>Options</Button>
-      //       </Dropdown>
-      //     ),
-      //   },
-      // ];
-      const Here = companies
-      const columns = [
+      const columns: ColumnsType<TravelsInterface> = [
         {
           title: "Id",
           dataIndex: "id",
           key: "id",
+          render: (text) => <Typography.Text strong>{text}</Typography.Text>,
         },
         {
           title: "Name",
           dataIndex: "name",
           key: "name",
+          render: (text) => (
+            <section>
+              <Typography.Text strong>{text}</Typography.Text>
+            </section>
+          ),
         },
         {
           title: "Phone",
           dataIndex: "phone",
           key: "phone",
+          render: (text) => (
+            <section>
+              <Typography.Text  strong>
+                {text}
+              </Typography.Text>
+              <br />
+            </section>
+          ),
         },
         {
           title: "Email",
           dataIndex: "email",
           key: "email",
+          render: (text) => (
+            <section>
+              <Typography.Text strong>
+                {text}
+              </Typography.Text>
+              <br />
+            </section>
+          ),
         },
         {
           title: "Status",
           dataIndex: "status",
           key: "status",
+          render: (text) => (
+            <section>
+              <Tag color="green">{text}</Tag>
+            </section>
+          ),
         },
     
         {
           title: "Action",
           key: "action",
+          render: (_, record) => (
+            <Dropdown menu={{ items }}>
+              <Button icon={<MoreOutlined />}>Options</Button>
+            </Dropdown>
+          ),
         },
       ];
+
 
     
   return (
@@ -155,7 +123,7 @@ export default function CompaniesPageComponent(props: {
           <Descriptions title="Companies" />
         </Space>
         <section>
-          <Table columns={columns} dataSource={Here} rowKey={Here.id}/>
+          <Table columns={columns} dataSource={companies ?? []} rowKey={"id"}/>
         </section>
       </div>
     </section>
