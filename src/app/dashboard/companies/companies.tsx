@@ -6,6 +6,7 @@ import {
     CheckCircleOutlined,
     DeleteOutlined,
     MoreOutlined,
+    SearchOutlined,
   } from "@ant-design/icons";
   import {
     Button,
@@ -24,13 +25,7 @@ export default function CompaniesPageComponent(props: {
     companies: TravelsInterface[] | null;
   }) {
     const { companies } = props
-
-    const Here = companies
-    console.log('aquii',Here);
-    
-    
-    
-
+     
     const items: MenuProps["items"] = [
         {
           key: "1",
@@ -120,9 +115,10 @@ export default function CompaniesPageComponent(props: {
           minHeight: 380,
         }}>
         <Space>
-          <Descriptions title="Companies" />
+          <Descriptions title="Travels" />
+          <Button type="primary" icon={<SearchOutlined/>}>Search</Button>
         </Space>
-        <section>
+        <section style={{marginTop: 20}}>
           <Table columns={columns} dataSource={companies ?? []} rowKey={"id"}/>
         </section>
       </div>
