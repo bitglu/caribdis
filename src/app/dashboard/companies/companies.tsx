@@ -1,5 +1,7 @@
 "use client"
 import { TravelsInterface } from "@/ts/interfaces/travels.interface";
+import { useState } from 'react'
+
 
 import {
     CarOutlined,
@@ -7,6 +9,7 @@ import {
     DeleteOutlined,
     MoreOutlined,
     SearchOutlined,
+    MailOutlined
   } from "@ant-design/icons";
   import {
     Button,
@@ -25,7 +28,9 @@ export default function CompaniesPageComponent(props: {
     companies: TravelsInterface[] | null;
   }) {
     const { companies } = props
-     
+    const [companie, setCompanie] = useState(companies)
+    
+    
     const items: MenuProps["items"] = [
         {
           key: "1",
@@ -41,12 +46,6 @@ export default function CompaniesPageComponent(props: {
       ];
     
       const columns: ColumnsType<TravelsInterface> = [
-        {
-          title: "Id",
-          dataIndex: "id",
-          key: "id",
-          render: (text) => <Typography.Text strong>{text}</Typography.Text>,
-        },
         {
           title: "Name",
           dataIndex: "name",
@@ -115,11 +114,11 @@ export default function CompaniesPageComponent(props: {
           minHeight: 380,
         }}>
         <Space>
-          <Descriptions title="Travels" />
+          <Descriptions title="Companies" />
           <Button type="primary" icon={<SearchOutlined/>}>Search</Button>
         </Space>
         <section style={{marginTop: 20}}>
-          <Table columns={columns} dataSource={companies ?? []} rowKey={"id"}/>
+          <Table columns={columns} dataSource={companie ?? []} rowKey={"id"}/>
         </section>
       </div>
     </section>
