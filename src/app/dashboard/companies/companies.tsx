@@ -1,63 +1,26 @@
 "use client"
 import { CompaniesInterface } from "@/ts/interfaces/companies.interface";
-import { useState } from 'react'
-
-
+import {  useState } from 'react'
+import { useRouter } from "next/navigation";
 import {
-    CarOutlined,
-    CheckCircleOutlined,
-    DeleteOutlined,
-    MoreOutlined,
-    SearchOutlined,
-    MailOutlined
-  } from "@ant-design/icons";
-  import {
     Button,
     Descriptions,
-    Dropdown,
-    message,
     Space,
     Table,
     Tag,
     Typography,
   } from "antd";
   import type { ColumnsType } from "antd/es/table";
-  import type { MenuProps } from "antd";
-import { record } from "zod";
 
 
 export default function CompaniesPageComponent(props: {
     companies: CompaniesInterface[] | null;
   }) {
     const { companies } = props
-    const [companie, setCompanie] = useState(companies)
-    
-    const searchCompanie = () => {
-      setCompanie(companies)
-      
-    }   
-    const handleCreateChildTask = (record: any) => {
-      console.log('record', record);
-      message.info(`Searching Driver ${record.name}`)
-  }
-    const items: MenuProps["items"] = [
-        {
-          key: "1",
-          label: "Search driver",
-          icon: <CarOutlined />,
-        },
-        {
-          key: "2",
-          danger: true,
-          label: "Delete companie",
-          icon: <DeleteOutlined />,
-        },
-      ];
-      const deleteCompanie = (record: any) => {
-        const filteredProducts: any = companie?.filter(product => product.id != record.id)
-        setCompanie(filteredProducts)
-      }
+    const [companie, setCompanie] = useState<CompaniesInterface[] | null>(companies)
+    const router = useRouter();
 
+    
       const columns: ColumnsType<CompaniesInterface> = [
         {
           title: "Name",
@@ -104,20 +67,10 @@ export default function CompaniesPageComponent(props: {
               <Tag color="green">{text}</Tag>
             </section>
           ),
-        },
-        {
-          title: "Action",
-          key: "action",
-          render: (_, record) => (
-            <Dropdown menu={{ items, onClick: ({key}) => { if(key==='1'){ handleCreateChildTask(record)} else if(key=== '2'){deleteCompanie(record)} } }}>
-              <Button icon={<MoreOutlined />}>Options</Button>
-            </Dropdown>
-          ),
-        },
+        }
       ];
 
 
-    
   return (
     <section>
       <div         
@@ -127,7 +80,7 @@ export default function CompaniesPageComponent(props: {
         }}>
         <Space>
           <Descriptions title="Companies" />
-          <Button type="primary" icon={<SearchOutlined/>} onClick={()=>searchCompanie()}>Search</Button>
+          <Button type="primary" onClick={()=> router.push('/dashboard/companies/company') }>Create companie</Button>
         </Space>
         <section style={{marginTop: 20}}>
           <Table columns={columns} dataSource={companie ?? []} rowKey={"id"}/>
