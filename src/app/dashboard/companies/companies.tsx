@@ -20,6 +20,9 @@ export default function CompaniesPageComponent(props: {
     const [companie, setCompanie] = useState<CompaniesInterface[] | null>(companies)
     const router = useRouter();
 
+    console.log(companie);
+    
+
     
       const columns: ColumnsType<CompaniesInterface> = [
         {
