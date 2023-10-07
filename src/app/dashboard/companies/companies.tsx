@@ -21,9 +21,6 @@ export default function CompaniesPageComponent(props: {
     const router = useRouter();
 
     console.log(companie);
-    
-
-    
       const columns: ColumnsType<CompaniesInterface> = [
         {
           title: "Name",

@@ -32,7 +32,7 @@ export default function CreateCompanieComponent(){
       <section style={{marginTop: 20}}>
         <Form
         form={form}
-        style={{ maxWidth: 600 }}
+        style={{ maxWidth: 600, marginLeft: 16 }}
         onFinish={onFinish}
 
         >
@@ -44,17 +44,17 @@ export default function CreateCompanieComponent(){
             <Input/>
           </Form.Item>
 
-          <Form.Item name="email" label="Email" rules={[{ required: true,  type: "email" }]}>
+          <Form.Item name="phone" label="Phone" rules={[{ required: true }]}>
             <Input/>
           </Form.Item>
 
-          <Form.Item name="phone" label="Phone" rules={[{ required: true }]}>
+          <Form.Item name="email" label="Email" rules={[{ required: true,  type: "email" }]}>
             <Input/>
           </Form.Item>
 
           <Form.Item>
             <Button type="primary" htmlType="submit">
-            Submit
+            Create
             </Button>
           </Form.Item>
         </Form>        
