@@ -1,4 +1,5 @@
-'use client'
+"use client"
+import { addCompany } from "@/app/actions/addCompany";
 import { CompaniesInterface } from "@/ts/interfaces/companies.interface";
 import {
   Button,
@@ -7,22 +8,15 @@ import {
   Form,
   Input,
 } from 'antd';
-import { useEffect, useState } from 'react'
+import  React from 'react'
+
+
+
 
 export default function CreateCompanieComponent(){
-  const [data, setData ] = useState<CompaniesInterface>()
   const [form] = Form.useForm()
-  const onFinish = (values: CompaniesInterface) => {
-    const date = new Date();
-    values.created_at = date
-    values.id = 123
-    values.status = 'pending'
-    setData(values)    
-  }
-  useEffect(()=>{
-    console.log('send to supabase', data);
-  },[data])
-  
+
+
   return( 
   <section>
     <div style={{padding: 24, minHeight:380}}>
@@ -33,7 +27,7 @@ export default function CreateCompanieComponent(){
         <Form
         form={form}
         style={{ maxWidth: 600, marginLeft: 16 }}
-        onFinish={onFinish}
+        onFinish={addCompany}
 
         >
           <Form.Item name="name" label="Name of company" rules={[{ required: true}]} >
@@ -56,6 +50,7 @@ export default function CreateCompanieComponent(){
             <Button type="primary" htmlType="submit">
             Create
             </Button>
+            
           </Form.Item>
         </Form>        
       </section>
