@@ -1,13 +1,19 @@
-import AccountForm from "@/app/account/account-form";
 import { createServerComponentClient } from "@supabase/auth-helpers-nextjs";
 import { cookies } from "next/headers";
+import { Database } from "@/supabase/models/supabase";
+import CompaniesPageComponent from "./companies";
 
-export default async function Account() {
-  const supabase = createServerComponentClient<any>({ cookies });
-
+export default async function CompaniesPage() {
+  const supabase = createServerComponentClient<Database>({ cookies });
   const {
     data: { session },
   } = await supabase.auth.getSession();
 
-  return <AccountForm session={session} />;
+  const { data: companies } = await supabase.from("companies").select();
+
+  const payload: any = companies;
+  
+
+  return <CompaniesPageComponent companies={payload} />;
+  
 }
